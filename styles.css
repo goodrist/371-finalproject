@@ -1,1 +1,193 @@
+/* Base setup */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  background-color: #fff;
+}
 
+/* Header and navbar layout */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Top-right sign in and cart */
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.6rem 2rem;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.signin {
+  text-decoration: none;
+  color: #004785;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.cart img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Centered logo */
+.logo-container {
+  text-align: center;
+  margin: 0.4rem 0;
+}
+
+.logo-img {
+  height: 80px;
+  width: auto;
+}
+
+/* Navigation menu below logo */
+.nav-menu {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+}
+
+.nav-menu ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0.9rem 0;
+  gap: 2.5rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #004785;
+}
+
+/* Hero banner */
+.hero {
+  background-image: url('images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 71, 133, 0.3);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.shop-btn {
+  background-color: white;
+  color: #004785;
+  padding: 0.8rem 1.8rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.shop-btn:hover {
+  background-color: #004785;
+  color: white;
+}
+
+/* Featured products section */
+.featured {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.featured h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #004785;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: start;
+  padding: 0 2rem;
+}
+
+.product-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.product-name {
+  margin-top: 0.8rem;
+  font-weight: 500;
+  color: #222;
+}
+
+/* Footer */
+.footer {
+  background-color: #f6f6f6;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
