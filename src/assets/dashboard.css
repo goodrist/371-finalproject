@@ -282,3 +282,20 @@ body {
     gap: 0.35rem;
   }
 }
+
+/* Navbar scrolled effect (optional) */
+.navbar.scrolled {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Cart page wrapper (optional polish) */
+.cart-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
