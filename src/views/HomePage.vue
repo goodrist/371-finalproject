@@ -1,5 +1,5 @@
 <template>
-  <!-- Hero Banner -->
+  <!-- Hero Banner (unchanged visually) -->
   <section class="hero">
     <div class="hero-text">
       <h1>Laker Pride Meets Everyday Style</h1>
@@ -8,59 +8,147 @@
     </div>
   </section>
 
-  <!-- Featured Products -->
-  <section class="featured">
+  <!-- If no product selected: show Featured grid -->
+  <section v-if="!selectedProduct" class="featured">
     <h2>Featured Looks</h2>
     <div class="product-grid">
-
-      <!-- Top row -->
-      <div class="product-card">
-        <img src="/images/pennantcrew.jpg" alt="Pennant Crew" />
-        <p class="product-name">Pennant Crew</p>
+      <div
+        v-for="product in featuredProducts"
+        :key="product.id"
+        class="product-card"
+        @click="() => selectProduct(product)"
+        style="cursor: pointer;"
+      >
+        <img :src="product.image" :alt="product.name" />
+        <p class="product-name">{{ product.name }}</p>
       </div>
-      <div class="product-card">
-        <img src="/images/phoenixfleececrew.jpg" alt="Phoenix Fleece Crew" />
-        <p class="product-name">Phoenix Fleece Crew</p>
-      </div>
-      <div class="product-card">
-        <img src="/images/powerblendsparklescrew.jpg" alt="Powerblend Sparkle Crew" />
-        <p class="product-name">Powerblend Sparkle Crew</p>
-      </div>
-
-      <!-- Middle row -->
-      <div class="product-card">
-        <img src="/images/clubfleecehood.jpg" alt="Club Fleece Hoodie" />
-        <p class="product-name">Club Fleece Hoodie</p>
-      </div>
-      <div class="product-card">
-        <img src="/images/heavyweighthood.jpg" alt="Heavyweight Hoodie" />
-        <p class="product-name">Heavyweight Hoodie</p>
-      </div>
-      <div class="product-card">
-        <img src="/images/jerseylongsleevetee.jpg" alt="Jersey Long Sleeve Tee" />
-        <p class="product-name">Jersey Long Sleeve Tee</p>
-      </div>
-
-      <!-- Bottom row -->
-      <div class="product-card">
-        <img src="/images/riseswooshflexhat.jpg" alt="Rise Swoosh Flex Hat" />
-        <p class="product-name">Rise Swoosh Flex Hat</p>
-      </div>
-      <div class="product-card">
-        <img src="/images/gvbeanie.jpg" alt="GVSU Beanie" />
-        <p class="product-name">GVSU Beanie</p>
-      </div>
-      <div class="product-card">
-        <img src="/images/jvstjohnsburytotebag.jpg" alt="JV St. Johnsbury Tote Bag" />
-        <p class="product-name">JV St. Johnsbury Tote Bag</p>
-      </div>
-
     </div>
   </section>
+
+  <!-- If a product is selected: show the item page -->
+  <ProductDetail
+    v-else
+    :product="selectedProduct"
+    @back="selectedProduct = null"
+    @add-to-cart="handleAddToCart"
+  />
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import ProductDetail from '../components/ProductDetail.vue';
+
+type Product = {
+  id: string;
+  name: string;
+  price: string;
+  image: string;
+  tag?: string;
+  colors?: string[];
+  sizes?: string[];
+};
+
 const onShopClick = () => {
-  alert('Collection page coming soon!')
-}
+  alert('Collection page coming soon!');
+};
+
+const featuredProducts: Product[] = [
+  {
+    id: 'pennant-crew',
+    name: 'Pennant Crew',
+    price: '$49.99',
+    image: '/images/pennantcrew.jpg',
+    tag: 'Crewneck',
+    colors: ['Heather Gray', 'Royal Blue'],
+    sizes: ['S', 'M', 'L', 'XL'],
+  },
+  {
+    id: 'phoenix-fleece',
+    name: 'Phoenix Fleece Crew',
+    price: '$49.99',
+    image: '/images/phoenixfleececrew.jpg',
+    tag: 'Crewneck',
+    colors: ['Heather Gray'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+  },
+  {
+    id: 'sparkle-crew',
+    name: 'Powerblend Sparkle Crew',
+    price: '$52.99',
+    image: '/images/powerblendsparklescrew.jpg',
+    tag: 'Crewneck',
+    colors: ['Royal Blue'],
+    sizes: ['S', 'M', 'L', 'XL'],
+  },
+  {
+    id: 'club-fleece',
+    name: 'Club Fleece Hoodie',
+    price: '$54.99',
+    image: '/images/clubfleecehood.jpg',
+    tag: 'Hoodie',
+    colors: ['Royal Blue'],
+    sizes: ['S', 'M', 'L', 'XL'],
+  },
+  {
+    id: 'heavyweight-hoodie',
+    name: 'Heavyweight Hoodie',
+    price: '$54.99',
+    image: '/images/heavyweighthood.jpg',
+    tag: 'Hoodie',
+    colors: ['Heather Gray'],
+    sizes: ['S', 'M', 'L', 'XL'],
+  },
+  {
+    id: 'jersey-long-sleeve',
+    name: 'Jersey Long Sleeve Tee',
+    price: '$29.99',
+    image: '/images/jerseylongsleevetee.jpg',
+    tag: 'T-Shirt',
+    colors: ['White', 'Royal Blue'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+  },
+  {
+    id: 'rise-swoosh',
+    name: 'Rise Swoosh Flex Hat',
+    price: '$29.99',
+    image: '/images/riseswooshflexhat.jpg',
+    tag: 'Hat',
+    colors: ['Royal Blue'],
+    sizes: ['One Size'],
+  },
+  {
+    id: 'gv-beanie',
+    name: 'GVSU Beanie',
+    price: '$19.99',
+    image: '/images/gvbeanie.jpg',
+    tag: 'Beanie',
+    colors: ['Royal Blue'],
+    sizes: ['One Size'],
+  },
+  {
+    id: 'jv-tote',
+    name: 'JV St. Johnsbury Tote Bag',
+    price: '$34.99',
+    image: '/images/jvstjohnsburytotebag.jpg',
+    tag: 'Accessory',
+    colors: ['Natural Canvas'],
+    sizes: ['One Size'],
+  },
+];
+
+const selectedProduct = ref<Product | null>(null);
+
+const selectProduct = (product: Product) => {
+  selectedProduct.value = product;
+};
+
+const handleAddToCart = (payload: {
+  product: Product;
+  color: string;
+  size: string;
+  quantity: number;
+}) => {
+  // For now we just log it; later we’ll plug into a real cart store.
+  console.log('Add to cart:', payload);
+};
 </script>

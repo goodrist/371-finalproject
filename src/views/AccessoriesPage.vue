@@ -1,60 +1,152 @@
 <template>
+  <!-- Hero banner -->
   <section class="hero">
     <div class="hero-text">
       <h1>Laker Accessories</h1>
-      <p>Hats, bags, and cold-weather essentials.</p>
-      <a href="#" class="shop-btn" @click.prevent="onShopClick">
-        Shop Accessories
-      </a>
+      <p>Hats, bags, and extras to complete your look.</p>
+      <a href="#" class="shop-btn" @click.prevent="onShopClick">Shop Accessories</a>
     </div>
   </section>
 
-  <section class="featured">
-    <h2>Top Accessories</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <div
-          style="width: 100%; height: 260px; background-color: #fef9c3; border-radius: 10px;"
-        ></div>
-        <p class="product-name">Rise Swoosh Flex Hat</p>
-      </div>
-      <div class="product-card">
-        <div
-          style="width: 100%; height: 260px; background-color: #fef9c3; border-radius: 10px;"
-        ></div>
-        <p class="product-name">GVSU Knit Beanie</p>
-      </div>
-      <div class="product-card">
-        <div
-          style="width: 100%; height: 260px; background-color: #fef9c3; border-radius: 10px;"
-        ></div>
-        <p class="product-name">Canvas Tote Bag</p>
-      </div>
+  <ProductGrid
+    v-if="!selectedItem"
+    title="Accessories & Gifts"
+    :items="accessoriesItems"
+    @select="handleSelect"
+  />
 
-      <div class="product-card">
-        <div
-          style="width: 100%; height: 260px; background-color: #fef9c3; border-radius: 10px;"
-        ></div>
-        <p class="product-name">Laker Scarf</p>
-      </div>
-      <div class="product-card">
-        <div
-          style="width: 100%; height: 260px; background-color: #fef9c3; border-radius: 10px;"
-        ></div>
-        <p class="product-name">GV Socks</p>
-      </div>
-      <div class="product-card">
-        <div
-          style="width: 100%; height: 260px; background-color: #fef9c3; border-radius: 10px;"
-        ></div>
-        <p class="product-name">Keychain & Lanyard Set</p>
-      </div>
-    </div>
-  </section>
+  <ProductDetail
+    v-else
+    :product="selectedItem"
+    @back="selectedItem = null"
+    @add-to-cart="handleAddToCart"
+  />
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import ProductGrid from '../components/ProductGrid.vue';
+import ProductDetail from '../components/ProductDetail.vue';
+
+type Product = {
+  id: string;
+  name: string;
+  price: string;
+  image: string;
+  tag?: string;
+  colors?: string[];
+  sizes?: string[];
+};
+
 const onShopClick = () => {
-  alert('Accessories collection coming soon!')
-}
+  alert('Accessories collection coming soon!');
+};
+
+const accessoriesItems: Product[] = [
+  {
+    id: 'a1',
+    name: 'Rise Swoosh Flex Hat',
+    price: '$29.99',
+    image: '/images/riseswooshflexhat.jpg',
+    tag: 'Hat',
+    colors: ['Royal Blue'],
+    sizes: ['One Size'],
+  },
+  {
+    id: 'a2',
+    name: 'GVSU Beanie',
+    price: '$19.99',
+    image: '/images/gvbeanie.jpg',
+    tag: 'Beanie',
+    colors: ['Royal Blue'],
+    sizes: ['One Size'],
+  },
+  {
+    id: 'a3',
+    name: 'JV St. Johnsbury Tote Bag',
+    price: '$34.99',
+    image: '/images/jvstjohnsburytotebag.jpg',
+    tag: 'Bag',
+    colors: ['Natural Canvas'],
+    sizes: ['One Size'],
+  },
+  {
+    id: 'a4',
+    name: 'Game Day Tote',
+    price: '$32.99',
+    image: '/images/jvstjohnsburytotebag.jpg',
+    tag: 'Bag',
+  },
+  {
+    id: 'a5',
+    name: 'Logo Sticker Art',
+    price: '$9.99',
+    image: '/images/lakerstore-logo.png',
+    tag: 'Sticker',
+  },
+  {
+    id: 'a6',
+    name: 'Logo Mug Print',
+    price: '$14.99',
+    image: '/images/lakerstore-logo.png',
+    tag: 'Drinkware',
+  },
+  {
+    id: 'a7',
+    name: 'Crew Patch Pin',
+    price: '$8.99',
+    image: '/images/pennantcrew.jpg',
+    tag: 'Pin',
+  },
+  {
+    id: 'a8',
+    name: 'Fleece Patch Keychain',
+    price: '$8.99',
+    image: '/images/phoenixfleececrew.jpg',
+    tag: 'Keychain',
+  },
+  {
+    id: 'a9',
+    name: 'Sparkle Laker Keychain',
+    price: '$9.99',
+    image: '/images/powerblendsparklescrew.jpg',
+    tag: 'Keychain',
+  },
+  {
+    id: 'a10',
+    name: 'Mini Hoodie Ornament',
+    price: '$12.99',
+    image: '/images/clubfleecehood.jpg',
+    tag: 'Decor',
+  },
+  {
+    id: 'a11',
+    name: 'Crewneck Ornament',
+    price: '$12.99',
+    image: '/images/heavyweighthood.jpg',
+    tag: 'Decor',
+  },
+  {
+    id: 'a12',
+    name: 'Laker Long Sleeve Art',
+    price: '$11.99',
+    image: '/images/jerseylongsleevetee.jpg',
+    tag: 'Decor',
+  },
+];
+
+const selectedItem = ref<Product | null>(null);
+
+const handleSelect = (product: Product) => {
+  selectedItem.value = product;
+};
+
+const handleAddToCart = (payload: {
+  product: Product;
+  color: string;
+  size: string;
+  quantity: number;
+}) => {
+  console.log('Add to cart from Accessories:', payload);
+};
 </script>
