@@ -4,7 +4,7 @@
       <!-- Left: brand -->
       <div class="footer-block">
         <img
-          src="/images/lakerstore-logo.png"
+          src="../images/lakerstore-logo.png"
           alt="GVSU Laker Store"
           class="footer-logo"
         />

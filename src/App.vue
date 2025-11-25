@@ -72,14 +72,14 @@ onUnmounted(() => {
         <!-- Sign In now also goes to Cart -->
         <a href="#" class="signin" @click.prevent="goToCart">Sign In</a>
         <a href="#" class="cart" @click.prevent="goToCart">
-          <img src="/images/cart-icon.png" alt="Shopping Cart" />
+          <img src="../images/cart-icon.png" alt="Shopping Cart" />
         </a>
       </div>
     </div>
 
     <div class="logo-container">
       <img
-        src="/images/lakerstore-logo.png"
+        src="../images/lakerstore-logo.png"
         alt="GVSU LakerStore Logo"
         class="logo-img"
       />
