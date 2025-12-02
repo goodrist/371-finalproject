@@ -29,6 +29,9 @@
 import { ref } from 'vue';
 import ProductGrid from '../components/ProductGrid.vue';
 import ProductDetail from '../components/ProductDetail.vue';
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 type Product = {
   id: string;
@@ -41,7 +44,7 @@ type Product = {
 };
 
 const onShopClick = () => {
-  alert("Women’s collection coming soon!");
+  router.push("/womens");
 };
 
 const womensItems: Product[] = [
