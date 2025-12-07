@@ -20,6 +20,7 @@
         style="cursor: pointer;"
       >
         <img :src="product.image" :alt="product.name" />
+        <p class="product-path">{{  product.image }}</p>
         <p class="product-name">{{ product.name }}</p>
       </div>
     </div>
