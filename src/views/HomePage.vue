@@ -37,6 +37,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import ProductDetail from '../components/ProductDetail.vue';
+import pennantcrew from '../images/pennantcrew.jpg';
+import phoenixfleececrew from '../images/phoenixfleececrew.jpg';
+import powerblendsparklescrew from '../images/powerblendsparklescrew.jpg';
+import clubfleecehood from '../images/clubfleecehood.jpg';
+import heavyweighthood from '../images/heavyweighthood.jpg';
+import jerseylongsleevetee from '../images/jerseylongsleevetee.jpg';
+import riseswooshflexhat from '../images/riseswooshflexhat.jpg';
+import gvbeanie from '../images/gvbeanie.jpg';
+import jvstjohnsburytotebag from '../images/jvstjohnsburytotebag.jpg';
 
 type Product = {
   id: string;
@@ -57,7 +66,7 @@ const featuredProducts: Product[] = [
     id: 'pennant-crew',
     name: 'Pennant Crew',
     price: '$49.99',
-    image: '../images/pennantcrew.jpg',
+    image: pennantcrew,
     tag: 'Crewneck',
     colors: ['Heather Gray', 'Royal Blue'],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -66,7 +75,7 @@ const featuredProducts: Product[] = [
     id: 'phoenix-fleece',
     name: 'Phoenix Fleece Crew',
     price: '$49.99',
-    image: './images/phoenixfleececrew.jpg',
+    image: phoenixfleececrew,
     tag: 'Crewneck',
     colors: ['Heather Gray'],
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -75,7 +84,7 @@ const featuredProducts: Product[] = [
     id: 'sparkle-crew',
     name: 'Powerblend Sparkle Crew',
     price: '$52.99',
-    image: './images/powerblendsparklescrew.jpg',
+    image: powerblendsparklescrew,
     tag: 'Crewneck',
     colors: ['Royal Blue'],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -84,7 +93,7 @@ const featuredProducts: Product[] = [
     id: 'club-fleece',
     name: 'Club Fleece Hoodie',
     price: '$54.99',
-    image: './images/clubfleecehood.jpg',
+    image: clubfleecehood,
     tag: 'Hoodie',
     colors: ['Royal Blue'],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -93,7 +102,7 @@ const featuredProducts: Product[] = [
     id: 'heavyweight-hoodie',
     name: 'Heavyweight Hoodie',
     price: '$54.99',
-    image: './images/heavyweighthood.jpg',
+    image: heavyweighthood,
     tag: 'Hoodie',
     colors: ['Heather Gray'],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -102,7 +111,7 @@ const featuredProducts: Product[] = [
     id: 'jersey-long-sleeve',
     name: 'Jersey Long Sleeve Tee',
     price: '$29.99',
-    image: './images/jerseylongsleevetee.jpg',
+    image: jerseylongsleevetee,
     tag: 'T-Shirt',
     colors: ['White', 'Royal Blue'],
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -111,7 +120,7 @@ const featuredProducts: Product[] = [
     id: 'rise-swoosh',
     name: 'Rise Swoosh Flex Hat',
     price: '$29.99',
-    image: './images/riseswooshflexhat.jpg',
+    image: riseswooshflexhat,
     tag: 'Hat',
     colors: ['Royal Blue'],
     sizes: ['One Size'],
@@ -120,7 +129,7 @@ const featuredProducts: Product[] = [
     id: 'gv-beanie',
     name: 'GVSU Beanie',
     price: '$19.99',
-    image: './images/gvbeanie.jpg',
+    image: gvbeanie,
     tag: 'Beanie',
     colors: ['Royal Blue'],
     sizes: ['One Size'],
@@ -129,7 +138,7 @@ const featuredProducts: Product[] = [
     id: 'jv-tote',
     name: 'JV St. Johnsbury Tote Bag',
     price: '$34.99',
-    image: './images/jvstjohnsburytotebag.jpg',
+    image: jvstjohnsburytotebag,
     tag: 'Accessory',
     colors: ['Natural Canvas'],
     sizes: ['One Size'],
