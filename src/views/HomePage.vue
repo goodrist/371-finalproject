@@ -37,15 +37,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import ProductDetail from '../components/ProductDetail.vue';
-import pennantcrew from '../../dist/images/pennantcrew.jpg';
-import phoenixfleececrew from '../../dist/images/phoenixfleececrew.jpg';
-import powerblendsparklescrew from '../../dist/images/powerblendsparklescrew.jpg';
-import clubfleecehood from '../../dist/images/clubfleecehood.jpg';
-import heavyweighthood from '../../dist/images/heavyweighthood.jpg';
-import jerseylongsleevetee from '../../dist/images/jerseylongsleevetee.jpg';
-import riseswooshflexhat from '../../dist/images/riseswooshflexhat.jpg';
-import gvbeanie from '../../dist/images/gvbeanie.jpg';
-import jvstjohnsburytotebag from '../../dist/images/jvstjohnsburytotebag.jpg';
+import pennantcrew from '../images/pennantcrew.jpg';
+import phoenixfleececrew from '../images/phoenixfleececrew.jpg';
+import powerblendsparklescrew from '../images/powerblendsparklescrew.jpg';
+import clubfleecehood from '../images/clubfleecehood.jpg';
+import heavyweighthood from '../images/heavyweighthood.jpg';
+import jerseylongsleevetee from '../images/jerseylongsleevetee.jpg';
+import riseswooshflexhat from '../images/riseswooshflexhat.jpg';
+import gvbeanie from '../images/gvbeanie.jpg';
+import jvstjohnsburytotebag from '../images/jvstjohnsburytotebag.jpg';
+
 
 type Product = {
   id: string;
