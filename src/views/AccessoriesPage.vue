@@ -4,9 +4,14 @@
     <div class="hero-text">
       <h1>Laker Accessories</h1>
       <p>Hats, bags, and extras to complete your look.</p>
-      <a href="#" class="shop-btn" @click.prevent="onShopClick">Shop Accessories</a>
+
+      <router-link to="/accessories" class="shop-btn">
+        Shop Accessories
+      </router-link>
+      
     </div>
   </section>
+</template>
 
   <ProductGrid
     v-if="!selectedItem"
