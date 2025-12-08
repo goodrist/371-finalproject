@@ -43,9 +43,6 @@ type Product = {
   sizes?: string[];
 };
 
-const onShopClick = () => {
-  alert('Accessories collection coming soon!');
-};
 
 const accessoriesItems: Product[] = [
   {
